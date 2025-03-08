@@ -7,11 +7,17 @@
 
 import Testing
 @testable import MergeSortSwift_TDD
+import XCTest
 
-struct MergeSortSwift_TDDTests {
+class MergeSortSwift_TDDTests : XCTestCase {
 
-    @Test func example() async throws {
-        //  Write your test here and use APIs like `#expect(...)` to check expected conditions.
+    
+    func testfirst() {
+        
+        let unsortedArray = [1,2,3,4,5]
+        let sortedArray = [1,2,3,4,5]
+        
+        XCTAssertNotEqual(mergesort(unsortedArray), sortedArray)
     }
 
 }
