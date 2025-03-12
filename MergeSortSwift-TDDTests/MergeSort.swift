@@ -28,13 +28,25 @@ func merge(_ left : [Int], _ right : [Int]) -> [Int] {
     
     var mergedArray : [Int] = []
     var leftindex = 0, rightindex = 0
-    if left[leftindex] < right[rightindex] {
-        mergedArray.append(left[leftindex])
-        leftindex += 1
-    }else {
-        mergedArray.append(right[rightindex])
-        rightindex += 1
+    while leftindex < left.count && rightindex < right.count {
+        if left[leftindex] < right[rightindex] {
+            mergedArray.append(left[leftindex])
+            leftindex += 1
+        }else {
+            mergedArray.append(right[rightindex])
+            rightindex += 1
+        }
+    }
+    
+    if leftindex < left.count {
+       // mergedArray.append(contentsOf: left[leftindex ...])
+        mergedArray.append(contentsOf: left[leftindex...])
+    }
+    
+    if rightindex < right.count {
+        mergedArray.append(contentsOf: right[rightindex...])
     }
     print("MergedArray = \(mergedArray)")
-    return [1,2,3,4,5]
+   // return [1,2,3,4,5]
+    return mergedArray
 }
